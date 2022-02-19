@@ -42,13 +42,16 @@ public class NoteBook {
 		
 		for (Note n: f.getNotes()) {
 			if (n.equals(note)) {
-				System.out.println("Creating note " + note.getTitle() + " under folder "
-						+ folderName + " failed");
 				noteFound = true;
+				break;
 			}
 		}
 		
-		if (!noteFound) {
+		if (noteFound) {
+			System.out.println("Creating note " + note.getTitle() + " under folder "
+					+ folderName + " failed");
+		}
+		else {
 			f.addNote(note);
 		}
 		
